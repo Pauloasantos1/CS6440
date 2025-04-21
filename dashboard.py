@@ -147,7 +147,7 @@ st.set_page_config(page_title="Healthcare Equity Dashboard", layout="wide")
 
 st.title("📊 Healthcare Dashboard: Minority Health Risk Analysis")
 st.markdown(
-    f"Live FHIR: `{FHIR_BASE}` (first {MAX_PAGES} bundles) • Synthetic: Synthea CSVs  \n"
+    f"Live FHIR Data: `{FHIR_BASE}` (first {MAX_PAGES} bundles) • Synthetic: Synthea CSVs  \n"
     f"**Minority** = race ≠ White **OR** address.country ≠ USA."
 )
 
@@ -170,10 +170,10 @@ st.dataframe(all_cond, use_container_width=True)
 st.header("Merged Patient‑Condition Records")
 st.dataframe(merged, use_container_width=True)
 
-c1, c2, c3 = st.columns(3)
-c1.metric("Minority patients", int(all_pat[all_pat["Group"] == "Minority"].shape[0]))
-c2.metric("Majority patients", int(all_pat[all_pat["Group"] == "Majority"].shape[0]))
-c3.metric("Unknown group", int(all_pat[all_pat["Group"] == "Unknown"].shape[0]))
+# c1, c2, c3 = st.columns(3)
+# c1.metric("Minority patients", int(all_pat[all_pat["Group"] == "Minority"].shape[0]))
+# c2.metric("Majority patients", int(all_pat[all_pat["Group"] == "Majority"].shape[0]))
+# c3.metric("Unknown group", int(all_pat[all_pat["Group"] == "Unknown"].shape[0]))
 
 st.divider()
 
